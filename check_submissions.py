@@ -1,3 +1,4 @@
+from importlib.resources import path
 import os
 from pathlib import Path
 from typing import Any, List
@@ -42,6 +43,7 @@ class Student:
 
 
 def check_structure(path, student: Student):
+    # print(path)
     folderName = os.listdir(path)
     folderNameLowered = [x.lower() for x in folderName]
 
@@ -129,8 +131,8 @@ def write_to_readme(filename, students_list):
 completed_student_list: List[Student] = []
 incompleted_student_list: List[Student] = []
 
-names = os.listdir(home)
-
+names1 = os.listdir(home)
+names = [i for i in names1 if i not in ["README.md",".github","check_submissions.py",".git"]]
 for folder in names:
     name = "Invalid Foldername"
     githubid = "Invalid Foldername"
@@ -145,6 +147,7 @@ for folder in names:
         
 
     student = Student(name, githubid)
+    print("this is path" + os.path.join(home, folder))
     check_structure(os.path.join(home, folder), student)
     if student.completed:
         completed_student_list.append(student)
