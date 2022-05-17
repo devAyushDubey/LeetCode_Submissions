@@ -8,7 +8,7 @@ import requests
 
 home = os.path.abspath(Path(__file__).parent)
 
-submission_architecture = {"Week1": 10}
+submission_architecture = {"Week1": 1}
 
 class Student:
     def __init__(self, name, githubID):
@@ -147,7 +147,6 @@ for folder in names:
         
 
     student = Student(name, githubid)
-    print("this is path" + os.path.join(home, folder))
     check_structure(os.path.join(home, folder), student)
     if student.completed:
         completed_student_list.append(student)
@@ -156,5 +155,5 @@ for folder in names:
 
 incompleted_student_list.sort(key=lambda x: x.solved, reverse=True)
 completed_student_list.sort(key=lambda x: x.solved, reverse=True)
-
+print(completed_student_list)
 write_to_readme("README.md", completed_student_list)
