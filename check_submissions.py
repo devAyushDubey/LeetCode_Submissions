@@ -142,12 +142,12 @@ for folder in names:
 #         githubid = "Invalid Foldername"
         
 
-      student = Student(name, githubid)
-      check_structure(os.path.join(home, folder), student)
-      if student.completed:
-          completed_student_list.append(student)
-      else:
-          incompleted_student_list.append(student)
+    student = Student(name, githubid)
+    check_structure(os.path.join(home, folder), student)
+    if student.completed:
+        completed_student_list.append(student)
+    else:
+        incompleted_student_list.append(student)
 
 incompleted_student_list.sort(key=lambda x: x.solved, reverse=True)
 completed_student_list.sort(key=lambda x: x.solved, reverse=True)
