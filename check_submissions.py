@@ -132,6 +132,8 @@ incompleted_student_list: List[Student] = []
 names = os.listdir(home)
 
 for folder in names:
+    name = "Invalid Foldername"
+    githubid = "Invalid Foldername"
     try:
         [githubid, name] = folder.split("_")
     except ValueError:
