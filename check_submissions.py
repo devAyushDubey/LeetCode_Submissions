@@ -89,7 +89,7 @@ def write_to_readme(filename, students_list):
         )
     )
 
-    list_of_strings: List[Any] = ["No", "Profile", "Name", "Solved"]
+    list_of_strings: List[Any] = ["Rank", "Profile", "Name", "Solved"]
 
     cols_count = len(list_of_strings)
     mdFile.new_line()
