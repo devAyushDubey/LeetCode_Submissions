@@ -68,7 +68,7 @@ def check_structure(path, student: Student):
 
 def write_to_readme(filename, students_list):
 
-    mdFile = MdUtils(file_name=filename, title="Coderspree")
+    mdFile = MdUtils(file_name=filename, title="Leetcode Weekly Spree")
 
     mdFile.new_paragraph(
         mdFile.new_inline_image(
@@ -77,7 +77,10 @@ def write_to_readme(filename, students_list):
         )
     )
     mdFile.new_line()
-
+    mdFile.new_paragraph("Welcome to Leetcode Weekly Spree.")
+    mdFile.new_line()
+    mdFile.new_paragraph("This is an automated repo where your submission is automatically counted and ranking is displayed.", bold_italics_code='b', color='#33A8FF')
+    mdFile.new_line()
     mdFile.new_paragraph("Please visit the [Guide](./Guide/README.md)")
 
     mdFile.new_line()
