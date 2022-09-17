@@ -3,7 +3,7 @@ public:
     
     vector<vector<string>> ans;
     
-    bool isBoxSafe(vector<string> vec_str, int x,int y){
+    bool isBoxSafe(vector<string> &vec_str, int x,int y){
         
         int l = vec_str.size();
         
@@ -32,7 +32,7 @@ public:
         return true;
     }
     
-    void nQueens(vector<string> vec, int n, int r,unordered_map<int,int> checked){
+    void nQueens(vector<string> &vec, int n, int r,unordered_map<int,int> &checked){
         
         if(r==n){
             ans.push_back(vec);
