@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    TreeNode* createTree(vector<int> postorder, int postStart, int postEnd, vector<int> inorder, int inStart, int inEnd, unordered_map<int,int> &inMap){
+    TreeNode* createTree(vector<int> &postorder, int postStart, int postEnd, vector<int> &inorder, int inStart, int inEnd, unordered_map<int,int> &inMap){
         
         if(postStart < postEnd || inStart > inEnd)
             return NULL;
