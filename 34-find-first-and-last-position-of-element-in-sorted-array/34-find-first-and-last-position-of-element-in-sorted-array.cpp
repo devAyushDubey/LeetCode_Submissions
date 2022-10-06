@@ -3,7 +3,7 @@ public:
     
     vector<int> ans = vector<int>(2,-1);
     
-    void bSearch(vector<int> nums,int target, int l, int r){
+    void bSearch(vector<int> &nums,int &target, int l, int r){
         
         if(l<=r){
             int mid = l + (r-l)/2;
