@@ -5,7 +5,7 @@ public:
         unordered_map<string,int> rev;
         unordered_map<string,int> si_cnt;
         int pr=0,si=0;
-        for(auto it: words){
+        for(auto &it: words){
             
             if(it[0] == it[1]){
                 if(si_cnt[it]){
