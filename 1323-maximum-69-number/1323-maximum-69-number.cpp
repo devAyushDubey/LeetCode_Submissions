@@ -5,6 +5,7 @@ public:
         int temp = num;
         int pos_6 = 0;
         int i = 1;
+        
         while(temp){
             int digit = temp%10;
             if(digit == 6){
@@ -13,7 +14,7 @@ public:
             temp /= 10;
             i *= 10;
         }
-        //cout<<pos_6<<endl;
+        
         num -= (pos_6*6);
         num += (pos_6*9);
         
