@@ -12,7 +12,7 @@ public:
         vector<int> ans;
         
         while(i<n){
-            cout<<i<<" "<<mp[s[i]]<<endl;
+            //cout<<i<<" "<<mp[s[i]]<<endl;
             if(mp.find(s[i]) != mp.end()){
                 if(i == mp[s[i]]){
                     ans.push_back(1);
