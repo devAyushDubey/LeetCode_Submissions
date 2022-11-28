@@ -2,26 +2,25 @@ class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
         
-        vector<vector<int>> ans(2);
-        map<int,int> m;
+        map<int,int> win;
+        map<int,int> lose;
         
-        for(auto v : matches)
-        {
-            m[v[0]] += 0;
-            m[v[1]]++;
+        for(auto it: matches)
+            lose[it[1]]++;
+        
+        for(auto it: matches){
+            if(!lose[it[0]])
+                win[it[0]]++;
         }
         
-        for(auto i : m)
-        {
-            if(i.second == 0)
-            {
-                ans[0].push_back(i.first);
-            }
-            else if(i.second == 1)
-            {
-                ans[1].push_back(i.first);
-            }
+        vector<vector<int>> ans (2);
+        for(auto it: win)
+            ans[0].push_back(it.first);
+        for(auto it: lose){
+            if(it.second == 1)
+                ans[1].push_back(it.first);
         }
+        
         
         return ans;
     }
