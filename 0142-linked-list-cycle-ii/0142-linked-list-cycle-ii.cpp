@@ -14,21 +14,14 @@ public:
             return head;
         
         ListNode* ptr = head;
-        unordered_map<ListNode*,int> mp;
         
-        mp[ptr]++;
-        ptr = ptr -> next;
-        
-        while(ptr!=NULL){
-            
-            if(mp[ptr])
+        while(ptr->next!=NULL){
+            if(ptr >= ptr->next)
                 break;
             
-            mp[ptr]++;
             ptr = ptr->next;
         }
         
-        
-        return ptr;
+        return ptr->next;
     }
 };
