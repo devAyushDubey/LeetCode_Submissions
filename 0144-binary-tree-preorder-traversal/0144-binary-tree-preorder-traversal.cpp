@@ -10,18 +10,22 @@
  * };
  */
 class Solution {
-    void preT(TreeNode* root,vector<int>& v){
-        if(root == NULL)
+public:
+    
+    vector<int> data;
+    
+    void preT(TreeNode* node) {
+        if(node == NULL)
             return;
         
-        v.push_back(root->val);
-        preT(root->left,v);
-        preT(root->right,v);
+        data.push_back(node->val);
+        preT(node->left);
+        preT(node->right);
+        
     }
-public:
+    
     vector<int> preorderTraversal(TreeNode* root) {
-        vector<int> vec;
-        preT(root,vec);
-        return vec;
+        preT(root);
+        return data;
     }
 };
