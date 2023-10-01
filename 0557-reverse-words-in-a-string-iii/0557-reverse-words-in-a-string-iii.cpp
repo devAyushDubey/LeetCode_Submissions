@@ -13,12 +13,10 @@ public:
                     stk.pop();
                 }
                 
-                if(str != ""){
-                    if(ans=="")
-                        ans += str;
-                    else
-                        ans += (" " + str);
-                }
+                if(ans=="")
+                    ans += str;
+                else
+                    ans += (" " + str);
                 
                 continue;
             }
@@ -33,12 +31,10 @@ public:
             stk.pop();
         }
 
-        if(str != ""){
-            if(ans=="")
-                ans += str;
-            else
-                ans += (" " + str);
-        }
+        if(ans=="")
+            ans += str;
+        else
+            ans += (" " + str);
         
         return ans; 
     }
