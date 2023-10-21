@@ -3,60 +3,52 @@ public:
     
     vector<vector<string>> ans;
     
-    bool isPalindrome(string st){
-        //cout<<st<<endl;
+    bool isPalindrome(string str) {
         
-        vector<char> vec;
-        int n = st.length();
-        
-        int l =0;
-        int r = n-1;
-        while(l<r){
-            if(st[l] != st[r])
+        int n = str.length();
+
+        for(int i=0;i<n/2;i++){
+            if(str[i] != str[n-i-1])
                 return false;
-            l++;
-            r--;
         }
-        return true;
         
+        return true;
     }
     
-    void perm(string s,vector<string> gy){
-        //cout<<s<<endl;
-        if(s.length()==0){
-            for(auto it: gy){
+    
+    void partitionGen(string s, vector<string> tmp) {
+        if(s.length() == 0){
+            
+            for(auto it: tmp){
                 if(!isPalindrome(it))
                     return;
             }
-            ans.push_back(gy);
+            
+            ans.push_back(tmp);
             return;
         }
         
-        string temp = "";
-        temp += s[0];
+        string st(1,s[0]);
+        tmp.push_back(st);
+        partitionGen(s.substr(1),tmp);
         
-        gy.push_back(temp);
-        perm(s.substr(1),gy);
-        gy.pop_back();
-        
-        if(gy.size()>0){
-            string sx = gy.back();
-            // for(auto it: gy){
-            //     cout<<it<<" ";
-            // }
-            // cout<<endl;
-            sx += temp;
-            //cout<<"SX "<<sx<<endl;
-            gy[gy.size()-1] = sx;
-            perm(s.substr(1),gy);
-            gy.pop_back();
+        tmp.pop_back();
+        string lst = "";
+        if(tmp.size() > 0){
+            lst  = tmp.back();
+            tmp.pop_back();
+            
+            tmp.push_back(lst+s[0]);
+            partitionGen(s.substr(1),tmp);
         }
+        
+        
     }
     
     vector<vector<string>> partition(string s) {
-        vector<string> temp = {};
-        perm(s,temp);
         
+        partitionGen(s,{});
         return ans;
+        
     }
 };
